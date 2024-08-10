@@ -21,3 +21,9 @@ Web Absensi Karyawan adalah aplikasi berbasis web yang memungkinkan untuk mengel
    ```bash
    git clone <URL_REPOSITORY>
    cd <NAMA_REPOSITORY>
+2. Install Depedencies
+   pip install -r requirements.txt
+3. Menjalankan Aplikasi
+   python app.py
+4. Mengakses Aplikasi
+   Buka Link LocalHost yang diberikan
