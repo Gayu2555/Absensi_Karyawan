@@ -9,9 +9,9 @@ app.secret_key = 'your_secret_key'
 
 # Konfigurasi MySQL
 app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Gayu251005777'
-app.config['MYSQL_DB'] = 'karyawan_db'
+app.config['MYSQL_USER'] = '#USE YOUR DB USERNAME'
+app.config['MYSQL_PASSWORD'] = '#USE YOUR DB PASSWORD'
+app.config['MYSQL_DB'] = '#USE YOUR DB NAME'
 
 mysql = MySQL(app)
 
