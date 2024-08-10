@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script>
+      function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(
+          function () {
+            alert("Unik ID berhasil disalin: " + text);
+          },
+          function () {
+            alert("Gagal menyalin Unik ID");
+          }
+        );
+      }
+    </script>
+  </head>
+  <body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-4xl">
+      <h1 class="text-2xl font-bold mb-4">Daftar Karyawan</h1>
+      <table class="min-w-full bg-white">
+        <thead>
+          <tr>
+            <th class="py-2 px-4 border">Nama</th>
+            <th class="py-2 px-4 border">Unik ID</th>
+            <th class="py-2 px-4 border">Tindakan</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for karyawan in karyawan_data %}
+          <tr>
+            <td class="py-2 px-4 border">{{ karyawan.nama }}</td>
+            <td class="py-2 px-4 border">{{ karyawan.unik_id }}</td>
+            <td class="py-2 px-4 border">
+              <button
+                class="bg-blue-500 text-white px-4 py-2 rounded"
+                onclick="copyToClipboard('{{ karyawan.unik_id }}')"
+              >
+                Copy Unik ID
+              </button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

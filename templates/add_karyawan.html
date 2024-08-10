@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tambah Karyawan</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 flex justify-center">
+    <div class="w-full max-w-lg bg-white p-8 rounded shadow-md mt-10">
+      <h1 class="text-2xl font-bold mb-6">Tambah Karyawan</h1>
+
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %}
+      <div
+        class="mb-4 p-4 {{ 'bg-green-200' if category == 'success' else 'bg-red-200' }} text-{{ 'green-800' if category == 'success' else 'red-800' }} rounded"
+      >
+        {{ message }}
+      </div>
+      {% endfor %} {% endif %} {% endwith %}
+
+      <form method="POST" enctype="multipart/form-data">
+        <div class="mb-4">
+          <label for="nama_lengkap" class="block text-gray-700"
+            >Nama Lengkap:</label
+          >
+          <input
+            type="text"
+            id="nama_lengkap"
+            name="nama_lengkap"
+            class="w-full p-2 border rounded"
+            required
+          />
+        </div>
+        <div class="mb-4">
+          <label for="tanggal_lahir" class="block text-gray-700"
+            >Tanggal Lahir:</label
+          >
+          <input
+            type="date"
+            id="tanggal_lahir"
+            name="tanggal_lahir"
+            class="w-full p-2 border rounded"
+            required
+          />
+        </div>
+        <div class="mb-4">
+          <label for="pendidikan_terakhir" class="block text-gray-700"
+            >Pendidikan Terakhir:</label
+          >
+          <input
+            type="text"
+            id="pendidikan_terakhir"
+            name="pendidikan_terakhir"
+            class="w-full p-2 border rounded"
+            required
+          />
+        </div>
+        <div class="mb-4">
+          <label for="alamat" class="block text-gray-700">Alamat:</label>
+          <textarea
+            id="alamat"
+            name="alamat"
+            class="w-full p-2 border rounded"
+            required
+          ></textarea>
+        </div>
+        <div class="mb-4">
+          <label for="foto" class="block text-gray-700">Foto:</label>
+          <input
+            type="file"
+            id="foto"
+            name="foto"
+            class="w-full p-2 border rounded"
+            accept="image/*"
+            required
+          />
+        </div>
+        <div>
+          <button
+            type="submit"
+            class="bg-blue-500 text-white px-4 py-2 rounded"
+          >
+            Tambah Karyawan
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administrator - Data Karyawan</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 flex justify-center">
+    <div class="w-full max-w-2xl bg-white p-8 rounded shadow-md mt-10">
+      <h1 class="text-2xl font-bold mb-6">Detail Karyawan</h1>
+
+      <form method="POST" action="{{ url_for('administrator') }}">
+        <div class="mb-4">
+          <label for="unik_id" class="block text-gray-700">Unik ID:</label>
+          <input
+            type="text"
+            id="unik_id"
+            name="unik_id"
+            class="w-full p-2 border rounded"
+            placeholder="Masukkan Unik ID"
+            required
+          />
+        </div>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">
+          Cari
+        </button>
+      </form>
+
+      {% if karyawan %}
+      <div class="mt-6">
+        <h2 class="text-xl font-bold mb-4">Detail Karyawan</h2>
+        <p><strong>Nama Lengkap:</strong> {{ karyawan.nama_lengkap }}</p>
+        <p><strong>Alamat:</strong> {{ karyawan.alamat }}</p>
+        <div class="mt-4">
+          <strong>Foto:</strong><br />
+          <img
+            src="{{ url_for('static', filename='uploads/' ~ karyawan.foto) }}"
+            alt="Foto Karyawan"
+            class="w-32 h-32 object-cover rounded"
+          />
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>
