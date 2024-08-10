@@ -1,2 +1,3 @@
 # Absensi_Karyawan
-Web Absensi berbasis karyawan 
+Sebuah Web Absensi Karyawan berbasis Web menggunakan bahasa Pemrograman Python dana MySQL, dan untuk styling Frontend menggunakan Framework CSS Tailwind 
+
